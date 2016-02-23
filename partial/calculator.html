@@ -1,10 +1,10 @@
 <div id="myCalculator">
 	<main>
-		<section ng-repeat="bulb in calc.bulbs" class="{{bulb.class}}">
+		<section ng-repeat="bulb in calc.data.bulbs" class="{{bulb.class}}">
 			<div>
 				<h4>{{bulb.title}}</h4>
-				<p>{{calc.data.brightness * bulb.conversion | number:1}}</p>
-				<p>{{365*(calc.data.brightness * bulb.conversion/1000)*calc.data.hours*calc.data.price | number:2}}</p>
+				<p>{{calc.calcPower(bulb.conversion, calc.data.brightness) | number:1}}</p>
+				<p>{{calc.calcCost(bulb.conversion, calc.data) | number:2}}</p>
 			</div>
 		</section>
 	</main>

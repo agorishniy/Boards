@@ -7,15 +7,19 @@ angular.module("boardsApp", ['ngRoute'])
 	.factory("BulbInit", BulbInit);
 
 function BulbInit(){
-    var bulbs = [
-        {"class": "inc", 	"title": "Halogen", 		"conversion": .0625},
-        {"class": "hal", 	"title": "Incandescent", 	"conversion": .0450},
-        {"class": "cfl", 	"title": "CFL", 			"conversion": .0146},
-        {"class": "led", 	"title": "LED", 			"conversion": .0125}
-    ];
-
+	var data = {
+		brightness: "900",
+		price: 0.34,
+		hours: 4,
+	    bulbs: [
+	        {"class": "inc", 	"title": "Halogen", 		"conversion": .0625},
+	        {"class": "hal", 	"title": "Incandescent", 	"conversion": .0450},
+	        {"class": "cfl", 	"title": "CFL", 			"conversion": .0146},
+	        {"class": "led", 	"title": "LED", 			"conversion": .0125}
+	    ]
+	}
     var getBulbs = function () {
-        return bulbs;
+        return data;
     };
 
     return {
@@ -24,22 +28,15 @@ function BulbInit(){
 }
 
 function CalcCtrl(BulbInit){
-    this.bulbs = BulbInit.getBulbs();
+    this.data = BulbInit.getBulbs();
 
-	this.data = {
-		brightness: "900",
-		price: 0.34,
-		hours: 4
-	}
+    this.calcCost = function(conversion, data){
+        return 365*(data.brightness * conversion/1000)*data.hours*data.price;
+    }
 
-    // this.calcCost = function(conversion, data){
-    // 	console.log("calcCost");
-    //     return 365*(data.brightness * conversion/1000)*data.hours*data.price;
-    // }
-
-    // this.calcPower = function(conversion, brightness){
-    //     return brightness * conversion;
-    // }
+    this.calcPower = function(conversion, brightness){
+        return brightness * conversion;
+    }
 }
 
 function BoardsCtrl(BoardsService){
