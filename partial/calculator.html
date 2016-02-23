@@ -1,0 +1,34 @@
+<div id="myCalculator">
+	<main>
+		<section ng-repeat="bulb in calc.bulbs" class="{{bulb.class}}">
+			<div>
+				<h4>{{bulb.title}}</h4>
+				<p>{{calc.data.brightness * bulb.conversion | number:1}}</p>
+				<p>{{365*(calc.data.brightness * bulb.conversion/1000)*calc.data.hours*calc.data.price | number:2}}</p>
+			</div>
+		</section>
+	</main>
+	<form>
+		<div>
+			<h4>Lumens</h4>
+			<p>Brightness <br> of bulb</p>
+			<select ng-model="calc.data.brightness">
+				<option label="375" value="375">375</option>
+				<option label="600" value="600">600</option>
+				<option label="900" value="900">900</option>
+				<option label="1125" value="1125">1125</option>
+				<option label="1600" value="1600">1600</option>
+			</select>
+		</div>
+		<div>
+			<h4>kWh</h4>
+			<p>Kilowatt-<br>hour cost</p>
+			<input type="number" ng-model="calc.data.price"> dollars
+		</div>
+		<div>
+			<h4>Hours</h4>
+			<p>Usage <br>per day</p>
+			<input type="number" ng-model="calc.data.hours">
+		</div>
+	</form>
+</div>

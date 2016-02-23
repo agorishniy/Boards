@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html ng-app="boardsApp">
+
+  <head>
+    <link rel="stylesheet" href="css/bootstrap.min.css" />
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" type="text/css" href="assets/calculator.css">
+
+    <script src="js/angular.min.js"></script>
+    <script src="js/angular-route.js"></script>
+    <script src="js/script.js"></script>
+
+  </head>
+
+  <body class="bg-blue">
+
+    <header class="navbar-clear" role="banner">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a href="#" class="navbar-brand">
+          <img src="images/logo.png" alt="noterio.us" />
+        </a>
+      </div>
+      <!-- Collect the nav links, forms, and other content for toggling -->
+      <div class="collapse navbar-collapse navbar-ex1-collapse">
+        <ul class="nav navbar-nav navbar-right">
+          <li>
+            <a class="blue" href="#/calculator">Calculator</a>
+          </li>
+          <li>
+            <a class="blue" href="http://angularjs.org/" target="_blank">AngularJS</a>
+          </li>
+          <li>
+            <a class="blue" href="https://github.com/simpulton/noterious" target="_blank">GITHUB</a>
+          </li>
+        </ul>
+      </div>
+      <!-- /.navbar-collapse -->
+    </header>
+
+    <!-- Add your site or application content here -->
+    <div>
+      <div id="content-container" ng-view>
+      </div>
+    </div>
+
+  </body>
+
+</html>
