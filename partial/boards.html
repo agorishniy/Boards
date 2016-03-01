@@ -1,21 +1,10 @@
 <div class="edit board my-repeat-animation" ng-repeat="board in boardAll.boards">
     <div class="caption">
-        <button type="button" class="top-right-corner" ng-click="boardAll.remove(board)">
-            <span class="glyphicon glyphicon-remove" ></span>
-        </button>
-        <div>
-          <input type="text" class="medium" placeholder="Board Title" ng-model="board.title">
-        </div>
-        <div>
-          <input type="text" placeholder="Board description." ng-model="board.desc">
-        </div>
-        <div class="bottom x-small">
-          <input type="checkbox" ng-model="board.isPublic">
-          Board is Public
-        </div>
-        <a href="#/board/{{ board.id }}" type="button" class="view bottom-right-corner">
-            <span class="glyphicon glyphicon-arrow-right"></span>
-        </a>
+        <board-remove></board-remove>
+        <board-title></board-title>
+        <board-desc></board-desc>
+        <board-public></board-public>
+        <board-in></board-in>
     </div>
 </div>
 
